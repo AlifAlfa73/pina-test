@@ -1,0 +1,22 @@
+{
+  "name": "pina-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlifAlfa73/pina-test.git"
+  },
+  "author": "alifalfa73",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlifAlfa73/pina-test/issues"
+  },
+  "homepage": "https://github.com/AlifAlfa73/pina-test#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
