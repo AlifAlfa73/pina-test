@@ -1,30 +1,37 @@
 const express = require('express');
 const router = express.Router();
+const typeRepo = require('../repositories/type');
 
 // Create type (article, webinar, course)
-// Update type
-// Delete type
-
 router.post('/', async (req, res) => {
-    console.log("Create Type")
-
-    console.log(req.body);
-
-    return res.status(204).end();
+    try {
+        const result = await typeRepo.createType(req.body);
+        console.log(result);
+        res.json({ data: result });
+    } catch (error) {
+        return res.status(500).json({error: error.message});
+    }
 });
 
-router.put('/', async (req, res) => {
-    console.log("Update Type")
-
-    console.log(req.body);
-
-    return res.status(204).end();
+// Update type
+router.put('/:id', async (req, res) => {
+    try {
+        await typeRepo.updateType(req.params.id, req.body);    
+        return res.status(200).end();
+    } catch (error) {
+        return res.status(500).json({error: error.message});
+    }
 });
 
-router.delete('/', async (req, res) => {
-    console.log("Delete Type")
 
-    return res.status(204).end();
+// Delete type
+router.delete('/:id', async (req, res) => {
+    try {
+        await typeRepo.deleteType(req.params.id);    
+        return res.status(200).end();
+    } catch (error) {
+        return res.status(500).json({error: error.message});
+    }
 });
 
 module.exports = router;
