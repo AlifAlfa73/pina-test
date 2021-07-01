@@ -16,7 +16,6 @@ exports.up = function(knex) {
           .notNullable()
           .unique()
           .unsigned();
-        table.string('lesson_name').notNullable();
         table.string('title').notNullable();
         table.string('subtitle').notNullable();
         table.string('description').notNullable();
@@ -30,10 +29,12 @@ exports.up = function(knex) {
           .bigInteger('created_at')
           .notNullable()
           .defaultTo(Date.now());
+        table
+          .bigInteger('updated_at');
       });
   };
   
   exports.down = function(knex) {
-    return knex.schema.dropTable('type').dropTable('lesson');
+    return knex.schema.dropTable('lesson').dropTable('type');
   };
   

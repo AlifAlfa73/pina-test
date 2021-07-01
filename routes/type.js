@@ -6,7 +6,6 @@ const typeRepo = require('../repositories/type');
 router.post('/', async (req, res) => {
     try {
         const result = await typeRepo.createType(req.body);
-        console.log(result);
         res.json({ data: result });
     } catch (error) {
         return res.status(500).json({error: error.message});
