@@ -65,11 +65,11 @@ async function getLessons(options) {
     const query = db('lesson').select('*');
 
     if (options.title != null) {
-        query.where('title', 'like', `%${query.title}%`);
+        query.where('title', 'like', `%${options.title}%`);
     }
 
     if (options.type != null) {
-        query.where('type', query.type);
+        query.where('type', options.type);
     }
 
     const sortBy = {
